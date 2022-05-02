@@ -1,23 +1,7 @@
-interface ButtonProps {
-  title?: string
-}
+import { Widget } from "./components/Widget";
 
-function Button(props: ButtonProps) {
+export function App() {
   return (
-    <button type="button">
-      {props.title ?? 'Padrão'}
-    </button>
+    <Widget />
   )
 }
-
-function App() {
-  return (
-    <>
-      <Button title="Enviar" />
-      <Button title="BlzBlzBlz" />
-      <Button />
-    </>
-  )
-}
-
-export default App
