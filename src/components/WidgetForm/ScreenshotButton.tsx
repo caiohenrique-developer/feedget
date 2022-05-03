@@ -4,11 +4,13 @@ import { useState } from "react";
 import { Loading } from "../Loading";
 
 interface ScreenshotButtonProps {
+  comment: string;
   screenshot: string | null;
   onScreenshotTook(screenshot: string | null): void;
 }
 
 export const ScreenshotButton = ({
+  comment,
   screenshot,
   onScreenshotTook,
 }: ScreenshotButtonProps): JSX.Element => {
@@ -44,8 +46,9 @@ export const ScreenshotButton = ({
   return (
     <button
       type="button"
+      disabled={comment.length === 0}
       onClick={handleTakeScreenshot}
-      className="p-2 bg-zinc-800 rounded-md border-transparent hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-offset-brand-500"
+      className="p-2 bg-zinc-800 rounded-md border-transparent hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-offset-brand-500 disabled:opacity-50 disabled:bg-zinc-800"
     >
       {isTakingScreenshot ? <Loading /> : <Camera className="w-6 h-6" />}
     </button>
