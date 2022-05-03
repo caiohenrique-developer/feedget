@@ -8,17 +8,22 @@ import { ScreenshotButton } from "../ScreenshotButton";
 interface FeedbackTypeStepProps {
   feedbackType: FeedbackTYpe;
   onRestartFeedback(): void;
+  onFeedbackSent(): void;
 }
 
 export const FeedbackContentStep = ({
   feedbackType,
   onRestartFeedback,
+  onFeedbackSent,
 }: FeedbackTypeStepProps): JSX.Element => {
   const [screenshot, setScreenshot] = useState<string | null>(null);
   const [comment, setComment] = useState("");
   const [isSendingFeedback, setIsSendingFeedback] = useState(false);
 
-  const feedbackTypeInfo = feedbackTypes[feedbackType];
+  const {
+    title,
+    image: { source, alt },
+  } = feedbackTypes[feedbackType];
 
   const handleSubmitFeedback = (ev: FormEvent) => {
     ev.preventDefault();
@@ -26,11 +31,12 @@ export const FeedbackContentStep = ({
     setIsSendingFeedback(true);
 
     // make the request here
-    console.log({ screenshot, comment });
+    console.log({ title, comment, screenshot });
 
     setTimeout(() => {
       setComment("");
       setIsSendingFeedback(false);
+      onFeedbackSent();
     }, 1000);
   };
 
@@ -46,12 +52,8 @@ export const FeedbackContentStep = ({
         </button>
 
         <span className="text-xl leading-6 flex items-center gap-2">
-          <img
-            src={feedbackTypeInfo.image.source}
-            alt={feedbackTypeInfo.image.alt}
-            className="w-6 h-6"
-          />
-          {feedbackTypeInfo.title}
+          <img src={source} alt={alt} className="w-6 h-6" />
+          {title}
         </span>
 
         <CloseButton />
