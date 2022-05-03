@@ -50,7 +50,7 @@ export const WidgetForm = (): JSX.Element => {
         )}
 
         <footer className="text-xs text-neutral-400">
-            Feito com 🫀 pela <a className="underline underline-offset-2" href="https://rocektseat.com.br">Rocketseat</a>
+            Feito com 🫀 pela <a className="underline underline-offset-2" href="https://rocketseat.com.br" target="_blank">Rocketseat</a>
         </footer>
       </div>
   );
