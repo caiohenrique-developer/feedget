@@ -1,9 +1,9 @@
 {
-  "name": "feedget",
+  "name": "feedget-web",
   "description": "Try submitting a bug feedback in the app 🐛",
-  "repository": "https://github.com/caiohenrique-developer/feedget.git",
+  "repository": "https://github.com/caiohenrique-developer/feedget-web.git",
   "bugs": {
-    "url": "https://github.com/caiohenrique-developer/feedget/issues"
+    "url": "https://github.com/caiohenrique-developer/feedget-web/issues"
   },
   "author": "Caio Henrique <caiohenrique.developer@gmail.com> (https://github.com/caiohenrique-developer)",
   "version": "0.0.0",
@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.0",
+    "axios": "^0.27.2",
     "html2canvas": "^1.4.1",
     "phosphor-react": "^1.4.1",
     "react": "^18.0.0",
